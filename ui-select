@@ -1,0 +1,19 @@
+			<div class="row divRow">
+				<div class="col-xs-3">
+					<ui-select ng-model="vendor.selected" theme="bootstrap" search-enabled="searchEnabled" ng-disabled="disabled"  title="Choose a vendor">
+					    <ui-select-match placeholder="Please select">{{$select.selected.vendorNo}}</ui-select-match>
+					    <ui-select-choices repeat="vendor in vendorList | propsFilter: {vendorNo: $select.search, vendorName: $select.search}">
+					     <div>供应商编号： <span ng-bind-html="vendor.vendorNo | highlight: $select.search"></span></div> 
+					     <small>
+					       	 供应商名称: <span ng-bind-html="''+vendor.vendorName | highlight: $select.search"></span>
+					     </small>
+					    </ui-select-choices>
+					  </ui-select>
+				</div>
+				<div class="col-xs-3 col-xs-offset-1">
+					<label ng-model="vendor.vendorName"  type="text" class="form-control">{{vendor.selected.vendorName}}</label>
+				</div>
+				<div class="col-xs-3 col-xs-offset-1">
+					<label ng-model="vendor.vendorAddress" type="text" class="form-control">{{vendor.selected.vendorAddress}}</label>
+				</div>
+			</div>
